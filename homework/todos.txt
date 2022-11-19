@@ -1,0 +1,3 @@
+- implement the instructions given and while doing that choose the best data structure suitable to hold and modify the stack.
+- implement a function that parses the given integers list and store it while also checking for errors/typos in it.
+- find a good sorting algorithm and hook it with the given instructions.

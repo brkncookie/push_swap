@@ -1,0 +1,32 @@
+a <= 10:
+	we'll start with a simple building block which will help us forward in our algo, a 3 random ints to sort which gives us 5 cases as follow:
+
+	case1: [2,1,3]->sa->[1,2,3].
+
+	case2: [3,2,1]->sa->[2,3,1]->rra->[1,2,3].
+
+	case3: [3,1,2]->ra->[1,2,3].
+
+	case4: [1,3,2]->sa->[3,1,2]->ra->[1,2,3].
+
+	case5: [2,3,1]->rra->[1,2,3].
+
+	afterwards for any integers list that's ( > 3 || <= 10 ):
+
+	1-find the smallest number and push it to stack b:
+		- to do so the number has to be on top of stack a.(pb instruction)
+		- we use ra/rra (depending on which half of the ints list number is in) to move it to the top.
+	2-repeat "step 1" till there are 3 ints left in the list and sort em if they're not already.
+	3-push back everything from stack b into stack a.
+		
+a > 10 && a <= 100:
+	here we'll sort stack a and store it to use it forward, we'll then divide it's size by 4 [ stack size / 4 ]
+	and use the resulting number as index in the sorted stack a which will give us a number to filter our 1st
+	chunk that will be pushed to stack b, and after that will multiple that index by 2 and do the same thing
+	again, then multiply it by 3 and do the same thing again till we have 3 chunks in stack b and 1 chunk in 
+	stack a, and with that we'll try to sort from the smallest to the biggest in stack a with either ra/rra
+	and we'll do that to stack b but with the biggest number 1st then the smallest, after all of this we'll 
+	have everything sorted in both of the stacks and the last thing to do would be to push everything from 
+	stack b to stack a.
+
+

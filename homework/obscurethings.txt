@@ -1,0 +1,9 @@
+Do i need to try out every sorting algorithm or just create an optimized one for all cases ? nope a single optimized one is enough.
+Does the checker in the bonus part need to check if the instructions list is  optimized ?  nope, just use the instructions given and check if the list is correctly sorted afterwards.
+Can we somehow use the Checker given to test as a helper instead of writing our own logic ? nope, it is easier to just apply what is in the previuos answer
+
+
+
+
+
+
