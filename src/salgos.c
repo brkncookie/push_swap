@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:42:52 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/19 16:41:24 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/20 16:17:10 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -29,7 +29,7 @@ void	so3rt(t_list **a)
 	}
 	else if (k > n && e < n)
 		ra(a);
-	else if (k < e && k < n)
+	else if (k < e && e > n && k < n)
 	{
 		sa(a);
 		ra(a);
@@ -42,12 +42,12 @@ void	so310rt(t_list **a, t_list	**b)
 {
 	int	n;
 
-	while(ft_lstsize(*a) > 3)
+	while (ft_lstsize(*a) > 3)
 	{
-		n = min(*a);
-		while(*(int *)((*a)->content) != n)
+		n = minmax(*a, 0);
+		while (*(int *)((*a)->content) != n)
 		{
-			if(inx(*a, n) > ft_lstsize(*a))
+			if (inx(*a, n) > (ft_lstsize(*a) / 2))
 				rra(a);
 			else
 				ra(a);
@@ -55,6 +55,41 @@ void	so310rt(t_list **a, t_list	**b)
 		pb(a, b);
 	}
 	so3rt(a);
-	while(!(*b))
+	while (*b)
 		pa(b, a);
+}
+
+void	so10100rt(t_list **a, t_list **b)
+{
+	int	*i;
+	int	n;
+	int c;
+	int o;
+	int h;
+	
+	i = isort(*a);
+	o = ft_lstsize(*a) / 4;
+	h = 1;
+	while(h < 4 && i)
+	{
+		c = 1;
+		o *= h;
+		while(c <= o)
+		{
+			n = inf(*a, i[o]);
+			while (*(int *)((*a)->content) != n)
+			{
+				if (inx(*a, n) > (ft_lstsize(*a) / 2))
+					rra(a);
+				else
+					ra(a);
+			}
+			pb(a, b);
+			c++;
+		}
+		h++;
+	}
+	if(i)
+		sorta(a);
+	sortb(b, a);
 }

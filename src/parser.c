@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 12:27:23 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/19 12:18:39 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/20 10:22:39 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ t_list	*parassign(int argc, char **argv, size_t *sze)
 		{
 			num = ft_calloc(1, sizeof(*num));
 			if (!num && farr(idx, arr, &a, num))
-				break ;
+				return (a);
 			*num = ft_atoi(arr[idx++]);
 			ft_lstadd_back(&a, ft_lstnew(num));
 		}

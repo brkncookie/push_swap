@@ -1,35 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 14:46:44 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/20 11:53:42 by mnadir           ###   ########.fr       */
+/*   Created: 2022/11/20 15:52:33 by mnadir            #+#    #+#             */
+/*   Updated: 2022/11/20 16:25:15 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+void	sortb(t_list **b, t_list **a)
 {
-	t_list	*a;
-	t_list	*b;
-	size_t	sze;
+	int	n;
 
-	sze = 0;
-	b = NULL;
-	a = parassign(argc, argv, &sze);
-	if (!a)
-		return (ft_printf("Error\n"), 1);
-	/* if (sze > 2 && sze < 11) */
-	so310rt(&a, &b);
-	ft_printf("Sorted:\n");
-	while (a)
+	while (*b)
 	{
-		printf("%d\n", *(int *)(a->content));
-		a = a->next;
+		n = minmax(*b, 1);
+		while (*(int *)((*b)->content) != n)
+		{
+			if (inx(*b, n) > (ft_lstsize(*b) / 2))
+				rrb(b);
+			else
+				rb(b);
+		}
+		pa(b, a);
 	}
-	return (0);
+}
+
+void	sorta(t_list **a)
+{
+	int	n;
+
+	while (*a)
+	{
+		n = minmax(*a, 0);
+		while (*(int *)((*a)->content) != n)
+		{
+			if (inx(*a, n) > (ft_lstsize(*a) / 2))
+				rra(a);
+			else
+				ra(a);
+		}
+	}
 }
