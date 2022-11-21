@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   salgos.c                                           :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 12:42:52 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/20 16:17:10 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/21 14:54:23 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -20,28 +20,30 @@ void	so3rt(t_list **a)
 	k = *(int *)(*a)->content;
 	e = *(int *)(*a)->next->content;
 	n = *(int *)(*a)->next->next->content;
-	if (k > e && k < n)
+	if (k > e && k < n && e < n)
 		sa(a);
-	else if (k > e && e > n)
+	else if (k > e && e > n && k > n)
 	{
 		sa(a);
 		rra(a);
 	}
-	else if (k > n && e < n)
+	else if (k > n && e < n && k > e)
 		ra(a);
 	else if (k < e && e > n && k < n)
 	{
 		sa(a);
 		ra(a);
 	}
-	else if (k < e && k > n)
+	else if (k < e && k > n && e > n)
 		rra(a);
 }
 
 void	so310rt(t_list **a, t_list	**b)
 {
 	int	n;
+	int i;
 
+	i = 0;
 	while (ft_lstsize(*a) > 3)
 	{
 		n = minmax(*a, 0);
@@ -53,9 +55,10 @@ void	so310rt(t_list **a, t_list	**b)
 				ra(a);
 		}
 		pb(a, b);
+		i++;
 	}
 	so3rt(a);
-	while (*b)
+	while (i--)
 		pa(b, a);
 }
 
@@ -63,20 +66,17 @@ void	so10100rt(t_list **a, t_list **b)
 {
 	int	*i;
 	int	n;
-	int c;
-	int o;
-	int h;
-	
+	int	o;
+	int	h;
+
 	i = isort(*a);
 	o = ft_lstsize(*a) / 4;
 	h = 1;
-	while(h < 4 && i)
+	while (h < 4 && i)
 	{
-		c = 1;
 		o *= h;
-		while(c <= o)
+		while (inf(*a, i[o], &n) == 'y')
 		{
-			n = inf(*a, i[o]);
 			while (*(int *)((*a)->content) != n)
 			{
 				if (inx(*a, n) > (ft_lstsize(*a) / 2))
@@ -85,7 +85,6 @@ void	so10100rt(t_list **a, t_list **b)
 					ra(a);
 			}
 			pb(a, b);
-			c++;
 		}
 		h++;
 	}

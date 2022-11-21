@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:39:12 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/20 16:10:35 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/21 10:40:42 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -74,23 +74,21 @@ int	*isort(t_list *a)
 		while (idx < l - inx - 1)
 		{
 			if (i[idx] > i[idx + 1])
-			{
 				swp(&i[idx], &i[idx + 1]);
-				idx++;
-			}
+			idx++;
 		}
 		inx++;
 	}
 	return (i);
 }
 
-int	inf(t_list *a, int n)
+char	inf(t_list *a, int n, int *i)
 {
 	while (a)
 	{
 		if (*(int *)(a->content) <= n)
-			return (*(int *)(a->content));
-		a = a->content;
+			return (*i = *(int *)(a->content), 'y');
+		a = a->next;
 	}
-	return (0);
+	return ('n');
 }
