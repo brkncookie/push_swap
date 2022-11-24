@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:52:33 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/21 14:48:19 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/24 08:19:13 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -29,34 +29,20 @@ void	sortb(t_list **b, t_list **a)
 	}
 }
 
-void	sorta(t_list **a)
+void	sorta(t_list **a, t_list **b)
 {
 	int		n;
-	t_list	*tmp;
-	t_list	*tmp1;
 
-	tmp = *a;
-	tmp1 = NULL;
-	while (tmp)
+	while (*a && *b)
 	{
-		n = minmax(tmp, 0);
-		while (*(int *)(tmp->content) != n)
+		n = minmax(*a, 0);
+		while (*(int *)((*a)->content) != n)
 		{
-			if (inx(tmp, n) > (ft_lstsize(tmp) / 2))
-				rra(&tmp);
+			if (inx(*a, n) > (ft_lstsize(*a) / 2))
+				rra(a);
 			else
-				ra(&tmp);
+				ra(a);
 		}
-		if (!tmp1)
-		{
-			tmp1 = tmp;
-			*a = tmp;
-		}
-		else
-		{
-			tmp1->next = tmp;
-			tmp1 = tmp1->next;
-		}
-		tmp = tmp->next;
+		pb(a, b);
 	}
 }

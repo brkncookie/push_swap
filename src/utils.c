@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:39:12 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/21 10:40:42 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/24 09:05:58 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -50,25 +50,22 @@ void	swp(int *x, int *y)
 	*y = tmp;
 }
 
-int	*isort(t_list *a)
+int	*isort(t_list *a, int l)
 {
 	int	*i;
 	int	inx;
 	int	idx;
-	int	l;
 
 	l = ft_lstsize(a);
 	i = ft_calloc(l, sizeof(*i));
-	if (!i)
-		return (NULL);
 	inx = 0;
-	while (a)
+	while (i && a)
 	{
 		i[inx++] = *(int *)(a->content);
 		a = a->next;
 	}
 	inx = 0;
-	while (inx < l - 1)
+	while (i && inx < l - 1)
 	{
 		idx = 0;
 		while (idx < l - inx - 1)

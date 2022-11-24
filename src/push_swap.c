@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:46:44 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/21 14:19:18 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/24 08:35:32 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -18,15 +18,21 @@ int	main(int argc, char **argv)
 	t_list	*b;
 	size_t	sze;
 
+	if (argc == 1)
+		return (0);
 	sze = 0;
 	b = NULL;
 	a = parassign(argc, argv, &sze);
 	if (!a)
 		return (ft_printf("Error\n"), 1);
-	if (sze > 2 && sze < 11)
+	if (sze > 1 && sze < 11)
 		so310rt(&a, &b);
 	else if (sze > 10 && sze < 101)
 		so10100rt(&a, &b);
+	else if (sze > 100 && sze < 501)
+		so500rt(&a, &b);
+	return (0);
+}
 	/* ft_printf("Sorted:\n"); */
 	/* ft_printf("Stack A:\n"); */
 	/* while (a) */
@@ -40,5 +46,3 @@ int	main(int argc, char **argv)
 	/* 	printf("%d\n", *(int *)(b->content)); */
 	/* 	b = b->next; */
 	/* } */
-	return (0);
-}
