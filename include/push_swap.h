@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 09:57:50 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/24 09:08:04 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/26 16:22:50 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,5 @@ void	sortb(t_list **b, t_list **a);
 void	sorta(t_list **a, t_list **b);
 int		*isort(t_list *a, int l);
 char	inf(t_list *a, int n, int *i);
+int		sorted(t_list *a);
 #endif

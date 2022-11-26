@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:52:33 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/24 08:19:13 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/26 12:17:41 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -45,4 +45,15 @@ void	sorta(t_list **a, t_list **b)
 		}
 		pb(a, b);
 	}
+}
+
+int	sorted(t_list *a)
+{
+	while (a->next)
+	{
+		if (*(int *)a->content > *(int *)a->next->content)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }
