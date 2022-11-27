@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 12:49:28 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/19 15:19:13 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/27 11:48:53 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -20,6 +20,8 @@ void	rra(t_list **a)
 	if (!*a)
 		return ;
 	sze = ft_lstsize(*a) - 1;
+	if (sze == 0)
+		return ;
 	last = ft_lstlast(*a);
 	blast = *a;
 	while (--sze)
@@ -39,6 +41,8 @@ void	rrb(t_list **b)
 	if (!*b)
 		return ;
 	sze = ft_lstsize(*b) - 1;
+	if (sze == 0)
+		return ;
 	last = ft_lstlast(*b);
 	blast = *b;
 	while (--sze)

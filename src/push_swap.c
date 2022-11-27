@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 14:46:44 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/26 16:05:37 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/27 11:14:47 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -28,9 +28,9 @@ int	main(int argc, char **argv)
 	if (sze > 1 && sze < 11)
 		so310rt(&a, &b);
 	else if (sze > 10 && sze < 101)
-		so10100rt(&a, &b);
+		so10100rt(&a, &b, sze);
 	else if (sze > 100 && sze < 501)
-		so500rt(&a, &b);
+		so500rt(&a, &b, sze);
 	while (a)
 	{
 		b = a;

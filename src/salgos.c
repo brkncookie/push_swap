@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:18:12 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/26 16:55:17 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/27 14:08:42 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -67,7 +67,7 @@ void	so310rt(t_list **a, t_list	**b)
 		pa(b, a);
 }
 
-void	so10100rt(t_list **a, t_list **b)
+void	so10100rt(t_list **a, t_list **b, int sze)
 {
 	int	*i;
 	int	n;
@@ -83,20 +83,26 @@ void	so10100rt(t_list **a, t_list **b)
 		j = o * h++;
 		while (inf(*a, i[j], &n) == 'y')
 		{
+			while (*(int *)((*a)->content) != n && \
+					inx(*a, n) > (ft_lstsize(*a) / 2))
+				rra(a);
 			while (*(int *)((*a)->content) != n)
-			{
-				if (inx(*a, n) > (ft_lstsize(*a) / 2))
-					rra(a);
-				else
-					ra(a);
-			}
+				ra(a);
 			pb(a, b);
+			if (idx(i, n, sze) > (j - o) + o / 2)
+			{
+				if(inf(*a, i[j], &n) == 'y' && *(int *)((*a)->content) != n \
+						&& inx(*a, n) < (ft_lstsize(*a) / 2))
+					rr(b, a);
+				else
+					rb(b);
+			}
 		}
 	}
 	return (sorta(a, b), sortb(b, a), free(i));
 }
 
-void	so500rt(t_list **a, t_list **b)
+void	so500rt(t_list **a, t_list **b, int sze)
 {
 	int	*i;
 	int	n;
@@ -105,21 +111,27 @@ void	so500rt(t_list **a, t_list **b)
 	int	j;
 
 	i = isort(*a, ft_lstsize(*a));
-	o = ft_lstsize(*a) / 8;
+	o = ft_lstsize(*a) / 9;
 	h = 1;
-	while (h < 7 && i)
+	while (h < 10 && i)
 	{
 		j = o * h++;
 		while (inf(*a, i[j], &n) == 'y')
 		{
+			while (*(int *)((*a)->content) != n && \
+					inx(*a, n) > (ft_lstsize(*a) / 2))
+				rra(a);
 			while (*(int *)((*a)->content) != n)
-			{
-				if (inx(*a, n) > (ft_lstsize(*a) / 2))
-					rra(a);
-				else
-					ra(a);
-			}
+				ra(a);
 			pb(a, b);
+			if (idx(i, n, sze) > (j - o) + o / 2)
+			{
+				if(inf(*a, i[j], &n) == 'y' && *(int *)((*a)->content) != n \
+						&& inx(*a, n) < (ft_lstsize(*a) / 2))
+					rr(b, a);
+				else
+					rb(b);
+			}
 		}
 	}
 	return (sorta(a, b), sortb(b, a), free(i));

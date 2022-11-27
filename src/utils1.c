@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 15:52:33 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/26 12:17:41 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/27 11:05:03 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -56,4 +56,14 @@ int	sorted(t_list *a)
 		a = a->next;
 	}
 	return (1);
+}
+
+int	idx(int *a, int n, int sze)
+{
+	int	i;
+
+	i = 0;
+	while (i < sze && a[i] != n)
+		++i;
+	return (i);
 }
