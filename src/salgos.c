@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 16:18:12 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/27 14:08:42 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/28 16:37:26 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -54,7 +54,7 @@ void	so310rt(t_list **a, t_list	**b)
 		n = minmax(*a, 0);
 		while (*(int *)((*a)->content) != n)
 		{
-			if (inx(*a, n) > (ft_lstsize(*a) / 2))
+			if (ix(*a, n) > (ft_lstsize(*a) / 2))
 				rra(a);
 			else
 				ra(a);
@@ -67,72 +67,60 @@ void	so310rt(t_list **a, t_list	**b)
 		pa(b, a);
 }
 
-void	so10100rt(t_list **a, t_list **b, int sze)
+void	so10100rt(t_list **a, t_list **b, int sze, int *i)
 {
-	int	*i;
 	int	n;
-	int	o;
 	int	h;
-	int	j;
 
-	i = isort(*a, ft_lstsize(*a));
-	o = ft_lstsize(*a) / 4;
 	h = 1;
 	while (h < 4 && i)
 	{
-		j = o * h++;
-		while (inf(*a, i[j], &n) == 'y')
+		while (inf(*a, i[(sze / 4) * h], &n) == 'y')
 		{
-			while (*(int *)((*a)->content) != n && \
-					inx(*a, n) > (ft_lstsize(*a) / 2))
+			while (*(int *)(*a)->content != n && ix(*a, n) > ft_lstsize(*a) / 2)
 				rra(a);
 			while (*(int *)((*a)->content) != n)
 				ra(a);
 			pb(a, b);
-			if (idx(i, n, sze) > (j - o) + o / 2)
+			if (idx(i, n, sze) > ((sze / 4) * h - (sze / 4)) + (sze / 8))
 			{
-				if(inf(*a, i[j], &n) == 'y' && *(int *)((*a)->content) != n \
-						&& inx(*a, n) < (ft_lstsize(*a) / 2))
+				if (inf(*a, i[(sze / 4) * h], &n) == 'y' && *(int *) \
+					((*a)->content) != n && ix(*a, n) < (ft_lstsize(*a) / 2))
 					rr(b, a);
 				else
 					rb(b);
 			}
 		}
+		h++;
 	}
-	return (sorta(a, b), sortb(b, a), free(i));
+	return (sorta(a, b, i), sortb(b, a, i), free(i));
 }
 
-void	so500rt(t_list **a, t_list **b, int sze)
+void	so500rt(t_list **a, t_list **b, int sze, int *i)
 {
-	int	*i;
 	int	n;
-	int	o;
 	int	h;
-	int	j;
 
-	i = isort(*a, ft_lstsize(*a));
-	o = ft_lstsize(*a) / 9;
 	h = 1;
 	while (h < 10 && i)
 	{
-		j = o * h++;
-		while (inf(*a, i[j], &n) == 'y')
+		while (inf(*a, i[(sze / 9) * h], &n) == 'y')
 		{
-			while (*(int *)((*a)->content) != n && \
-					inx(*a, n) > (ft_lstsize(*a) / 2))
+			while (*(int *)(*a)->content != n && ix(*a, n) > ft_lstsize(*a) / 2)
 				rra(a);
 			while (*(int *)((*a)->content) != n)
 				ra(a);
 			pb(a, b);
-			if (idx(i, n, sze) > (j - o) + o / 2)
+			if (idx(i, n, sze) > ((sze / 9) * h - (sze / 9)) + (sze / 18))
 			{
-				if(inf(*a, i[j], &n) == 'y' && *(int *)((*a)->content) != n \
-						&& inx(*a, n) < (ft_lstsize(*a) / 2))
+				if (inf(*a, i[(sze / 9) * h], &n) == 'y' && *(int *) \
+					((*a)->content) != n && ix(*a, n) < (ft_lstsize(*a) / 2))
 					rr(b, a);
 				else
 					rb(b);
 			}
 		}
+		h++;
 	}
-	return (sorta(a, b), sortb(b, a), free(i));
+	return (so310rt(a, b), sortb(b, a, i), free(i));
 }

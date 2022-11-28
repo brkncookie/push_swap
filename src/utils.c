@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 10:39:12 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/24 09:05:58 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/28 16:11:51 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -31,7 +31,7 @@ int	minmax(t_list *a, int i)
 	return (m);
 }
 
-int	inx(t_list *a, int n)
+int	ix(t_list *a, int n)
 {
 	int	i;
 

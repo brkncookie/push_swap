@@ -4,7 +4,7 @@ bSRCS = ft_lstadd_back.c ft_lstadd_front.c ft_lstclear.c ft_lstdelone.c ft_lstit
 bOBJS = ${bSRCS:.c=.o}
 NAME = libft.a
 CC = cc
-CFLAGS =  -Wall -Wextra -Werror
+CFLAGS =  -Wall -Wextra -Werror -g
 AR = ar rcs
 RM = rm -vf
 

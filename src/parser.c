@@ -6,7 +6,7 @@
 /*   By: mnadir <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 12:27:23 by mnadir            #+#    #+#             */
-/*   Updated: 2022/11/26 16:23:08 by mnadir           ###   ########.fr       */
+/*   Updated: 2022/11/28 13:42:33 by mnadir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,16 @@ int	is_vint(char *s)
 
 	sgn = 1;
 	len = 0;
-	while (ft_isspace(*s))
+	while (*s && ft_isspace(*s))
 		s++;
 	if (*s == '-' || *s == '+')
 	{
 		if (*(s++) == '-')
 			sgn *= -1;
 	}
-	while (*s == '0')
+	while (*s && *s == '0')
 		s++;
-	while (ft_isdigit(s[len]))
+	while (s[len] && ft_isdigit(s[len]))
 		len++;
 	if (len > 10 || s[len] != 0)
 		return (0);
